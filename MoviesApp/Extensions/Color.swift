@@ -19,4 +19,8 @@ extension Color {
     static var searchBox: Color {
         Color("SearchBox")
     }
+    
+    static var playBtn: Color {
+        Color("PlayBtn")
+    }
 }

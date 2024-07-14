@@ -34,7 +34,7 @@ struct DetailView: View {
         .environment(\.colorScheme, .dark)
         .overlay(backButton, alignment: .topLeading)
         .task {
-            await vm.fetchMovieReviews()
+//            await vm.fetchMovieReviews()
         }
     }
 }
@@ -112,22 +112,22 @@ private extension DetailView {
             
             Text("\(vm.error?.localizedDescription ?? "")")
             
-            VStack(alignment: .leading) {
-                switch selectedSection {
-                case .overview:
-                    Text(movie.overview)
-                case .reviews:
-                    ForEach(vm.reviews) { review in
-                        ReviewCard(review: review)
-                    }
-                }
-            }
+//            VStack(alignment: .leading) {
+//                switch selectedSection {
+//                case .overview:
+//                    Text(movie.overview)
+//                case .reviews:
+//                    ForEach(vm.reviews) { review in
+//                        ReviewCard(review: review)
+//                    }
+//                }
+//            }
         }
     }
     
     var backButton: some View {
         Button {
-            vm.selectedMovie = nil
+//            vm.selectedMovie = nil
         } label: {
             Image(systemName: "chevron.left")
                 .font(.headline)

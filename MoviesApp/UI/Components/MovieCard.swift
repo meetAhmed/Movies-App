@@ -17,7 +17,7 @@ struct MovieCard: View {
         VStack {
             ImageView(itemWidth: itemWidth, itemHeight: itemWidth, movie: movie)
                 .onTapGesture {
-                    viewModel.selectedMovie = movie
+//                    viewModel.selectedMovie = movie
                 }
         }
     }

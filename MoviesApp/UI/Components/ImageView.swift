@@ -16,25 +16,25 @@ struct ImageView: View {
     let itemHeight: CGFloat
     let movie: Movie
     var imageType: MovieImageType = .any
+    var radius: CGFloat = 16
+    @State private var image: UIImage? = nil
     
     var body: some View {
-        AsyncImage(url: URL(string: movie.imageFullPath(type: imageType))) { image in
-            image
-                .resizable()
-        } placeholder: {
-            ZStack {
-                Color.placeholder
-                
-                Text(movie.title)
-                    .poppins(.light, 14)
-                    .foregroundColor(.white)
-                    .padding()
+        VStack {
+            if let image {
+                Image(uiImage: image)
+                    .resizable()
+                   
+            } else {
+                PlaceholderImage(itemWidth: itemWidth, itemHeight: itemHeight)
             }
-            .frame(width: itemWidth, height: itemHeight)
+        }
+        .task {
+            image = await ImageCache.shared.getImage(urlString: movie.imageFullPath(type: imageType))
         }
         .scaledToFill()
         .frame(width: itemWidth, height: itemHeight, alignment: imageType == .backdrop ? .center : .topLeading)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clipShape(RoundedRectangle(cornerRadius: radius))
     }
 }
 
