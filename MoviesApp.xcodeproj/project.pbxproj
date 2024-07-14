@@ -27,6 +27,7 @@
 		F144E67B2982AB650019304C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144E67A2982AB650019304C /* SearchBar.swift */; };
 		F144E67D2982AD530019304C /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144E67C2982AD530019304C /* View.swift */; };
 		F144E67F2982AD5D0019304C /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144E67E2982AD5D0019304C /* UIApplication.swift */; };
+		F1942B0F2C439DA700266BAD /* secrets-debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F1942B0E2C439DA700266BAD /* secrets-debug.xcconfig */; };
 		F1AD182429813A5A00B5A0A7 /* MoviesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AD182329813A5A00B5A0A7 /* MoviesApp.swift */; };
 		F1AD182829813A5C00B5A0A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1AD182729813A5C00B5A0A7 /* Assets.xcassets */; };
 		F1AD182B29813A5C00B5A0A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1AD182A29813A5C00B5A0A7 /* Preview Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		F144E67A2982AB650019304C /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		F144E67C2982AD530019304C /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		F144E67E2982AD5D0019304C /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		F1942B0E2C439DA700266BAD /* secrets-debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "secrets-debug.xcconfig"; sourceTree = "<group>"; };
 		F1AD182029813A5A00B5A0A7 /* MoviesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1AD182329813A5A00B5A0A7 /* MoviesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesApp.swift; sourceTree = "<group>"; };
 		F1AD182729813A5C00B5A0A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				F144E67129829BBA0019304C /* Info.plist */,
+				F1942B0E2C439DA700266BAD /* secrets-debug.xcconfig */,
 				F144E647298298C60019304C /* Fonts */,
 				F144E62629826BCB0019304C /* Extensions */,
 				F1AD183229813A8C00B5A0A7 /* View */,
@@ -290,6 +293,7 @@
 			files = (
 				F144E67229829BD70019304C /* Poppins-Black.ttf in Resources */,
 				F144E67329829BD70019304C /* Poppins-Bold.ttf in Resources */,
+				F1942B0F2C439DA700266BAD /* secrets-debug.xcconfig in Resources */,
 				F144E67429829BD70019304C /* Poppins-Light.ttf in Resources */,
 				F144E67529829BD70019304C /* Poppins-Medium.ttf in Resources */,
 				F144E62C298276240019304C /* Colors.xcassets in Resources */,
