@@ -24,7 +24,6 @@ struct ImageView: View {
             if let image {
                 Image(uiImage: image)
                     .resizable()
-                   
             } else {
                 PlaceholderImage(itemWidth: itemWidth, itemHeight: itemHeight)
             }

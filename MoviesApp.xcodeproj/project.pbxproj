@@ -132,6 +132,22 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		F167CC7C2C48142800ACC3C7 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				F19AEB032C43C83000A43246 /* ImageCache.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		F167CC7D2C48144300ACC3C7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F144E62629826BCB0019304C /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		F1942B102C439FD300266BAD /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,8 +186,8 @@
 		F19AEB022C43C80C00A43246 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				F167CC7C2C48142800ACC3C7 /* Cache */,
 				F1AD183629813AA600B5A0A7 /* Networking */,
-				F19AEB032C43C83000A43246 /* ImageCache.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -197,7 +213,7 @@
 			children = (
 				F19AEB022C43C80C00A43246 /* Data */,
 				F1942B152C43B47000266BAD /* UI */,
-				F144E62629826BCB0019304C /* Extensions */,
+				F167CC7D2C48144300ACC3C7 /* Utils */,
 				F1AD183129813A7300B5A0A7 /* Supporting Files */,
 			);
 			path = MoviesApp;
