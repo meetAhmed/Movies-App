@@ -14,6 +14,8 @@ enum Endpoint {
     case search
     case topRated
     case reviews(_ movieId: Int)
+    case movieDetails(_ movieId: Int)
+    case movieImages(_ movieId: Int)
 }
 
 extension Endpoint {
@@ -45,6 +47,10 @@ private extension Endpoint {
             return "/3/movie/top_rated"
         case .reviews(let movieId):
             return "/3/movie/\(movieId)/reviews"
+        case .movieDetails(let movieId):
+            return "/3/movie/\(movieId)"
+        case .movieImages(let movieId):
+            return "/3/movie/\(movieId)/images"
         }
     }
 }

@@ -7,24 +7,24 @@
 
 import SwiftUI
 
-enum MovieButtonStyle {
+enum MButtonStyle {
     case play, normal, badge
 }
 
-struct MovieButtonIcon {
+struct MButtonIcon {
     let name: String
     var tint: Color = .white
 }
 
-struct MovieButtonTitle {
+struct MButtonTitle {
     let text: String
     var tint: Color = .white
 }
 
-struct MovieButton: View {
-    let title: MovieButtonTitle
-    var icon: MovieButtonIcon = .init(name: "info.circle")
-    var style: MovieButtonStyle = .normal
+struct MButton: View {
+    let title: MButtonTitle
+    var icon: MButtonIcon = .init(name: "info.circle")
+    var style: MButtonStyle = .normal
     
     var body: some View {
         Button {
@@ -66,5 +66,5 @@ struct MovieButton: View {
 }
 
 #Preview {
-    MovieButton(title: .init(text: "Info"), icon: .init(name: "info.circle", tint: .green))
+    MButton(title: .init(text: "Info"), icon: .init(name: "info.circle", tint: .green))
 }

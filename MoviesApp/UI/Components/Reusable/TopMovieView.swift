@@ -22,13 +22,10 @@ struct TopMovieView: View {
         VStack {
             ZStack {
                 if let movie {
-                    ImageView(
-                        itemWidth: itemWidth,
-                        itemHeight: itemHeight,
-                        movie: movie,
-                        imageType: .poster,
-                        radius: 0
-                    )
+                    MImageView(movie: movie)
+                        .frame(width: itemWidth, height: itemHeight)
+                        .cornerRadius(0)
+                        .imageType(.poster)
                     
                     LinearGradient(
                         colors: [
@@ -41,21 +38,28 @@ struct TopMovieView: View {
                         endPoint: .bottom
                     )
                 } else {
-                    PlaceholderImage(itemWidth: itemWidth, itemHeight: itemHeight)
+                    VStack {
+                        Image(systemName: "photo")
+                            .resizable()
+                            .frame(width: 90, height: 90)
+                            .scaledToFit()
+                    }
+                    .frame(width: itemWidth, height: itemHeight, alignment: .center)
                 }
             }
             
             VStack {
                 HStack {
-                    MovieButton(title: .init(text: "Top\n10"), style: .badge)
+                    MButton(title: .init(text: "Top\n10"), style: .badge)
                     Text("#2 in Pakistan Today")
                         .poppins(.bold, 13.72)
+                        .foregroundStyle(Color.white)
                 }
                 
                 HStack(alignment: .center, spacing: 25) {
-                    MovieButton(title: .init(text: "My List"), icon: .init(name: "plus", tint: .white))
-                    MovieButton(title: .init(text: "Play", tint: .black), icon: .init(name: "play.fill", tint: .black), style: .play)
-                    MovieButton(title: .init(text: "Info"), icon: .init(name: "info.circle", tint: .white))
+                    MButton(title: .init(text: "My List"), icon: .init(name: "plus", tint: .white))
+                    MButton(title: .init(text: "Play", tint: .black), icon: .init(name: "play.fill", tint: .black), style: .play)
+                    MButton(title: .init(text: "Info"), icon: .init(name: "info.circle", tint: .white))
                 }
             }
             .frame(maxWidth: .infinity)

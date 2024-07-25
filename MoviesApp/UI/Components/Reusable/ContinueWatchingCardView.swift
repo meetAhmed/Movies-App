@@ -19,7 +19,8 @@ struct ContinueWatchingCardView: View {
     }
     
     var body: some View {
-        ImageView(itemWidth: itemWidth, itemHeight: itemHeight, movie: movie)
+        MImageView(movie: movie)
+            .frame(width: itemWidth, height: itemHeight)
             .overlay {
                 Color.black.opacity(0.25)
             }

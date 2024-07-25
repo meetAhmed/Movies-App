@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MovieTitleView: View {
+struct MTitleView: View {
     let title: String
     
     init(_ title: String) {
@@ -24,5 +24,5 @@ struct MovieTitleView: View {
 }
 
 #Preview {
-    MovieTitleView("Trending")
+    MTitleView("Trending")
 }
