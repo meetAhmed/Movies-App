@@ -16,19 +16,16 @@ enum Endpoint {
     case reviews(_ movieId: Int)
     case movieDetails(_ movieId: Int)
     case movieImages(_ movieId: Int)
+    case custom(_ url: String)
 }
 
 extension Endpoint {
-    var fullPath: String {
-        base + path
-    }
-    
     static var imageBaseUrl: String {
         "https://image.tmdb.org/t/p/original"
     }
 }
 
-private extension Endpoint {
+extension Endpoint {
     var base: String {
         "https://api.themoviedb.org"
     }
@@ -36,21 +33,23 @@ private extension Endpoint {
     var path: String {
         switch self {
         case .trending:
-            return "/3/trending/movie/week"
+            return base + "/3/trending/movie/week"
         case .discoverMovies:
-            return "/3/discover/movie"
+            return base + "/3/discover/movie"
         case .genres:
-            return "/3/genre/movie/list"
+            return base + "/3/genre/movie/list"
         case .search:
-            return "/3/search/movie"
+            return base + "/3/search/movie"
         case .topRated:
-            return "/3/movie/top_rated"
+            return base + "/3/movie/top_rated"
         case .reviews(let movieId):
-            return "/3/movie/\(movieId)/reviews"
+            return base + "/3/movie/\(movieId)/reviews"
         case .movieDetails(let movieId):
-            return "/3/movie/\(movieId)"
+            return base + "/3/movie/\(movieId)"
         case .movieImages(let movieId):
-            return "/3/movie/\(movieId)/images"
+            return base + "/3/movie/\(movieId)/images"
+        case .custom(let url):
+            return url
         }
     }
 }

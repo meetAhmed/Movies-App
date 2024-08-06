@@ -19,7 +19,7 @@ struct MovieApiResponse: Decodable {
     }
 }
 
-struct Movie: Decodable, Identifiable {
+struct Movie: Decodable, Identifiable, Hashable {
     let adult: Bool
     let backdropPath: String?
     let genreIDS: [Int]

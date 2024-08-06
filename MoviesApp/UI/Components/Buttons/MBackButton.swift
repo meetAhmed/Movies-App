@@ -22,9 +22,9 @@ struct MBackButton: ViewModifier {
                             .font(.headline)
                             .padding(12)
                             .foregroundColor(.white)
-                            .background(Color.appBackground.opacity(0.5))
+                            .background(Color.primary.opacity(0.25))
                             .cornerRadius(10)
-                            .shadow(color: .black, radius: 5)
+                            .shadow(color: .primary, radius: 5)
                     }
                 }
             }

@@ -14,12 +14,10 @@ struct HomeView: View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
                 LazyVStack(spacing: 0) {
-                    NavigationLink {
-                        if let movie = viewModel.topMovie {
-                            DetailView(movie: movie)
+                    if let movie = viewModel.topMovie {
+                        NavigationLink(value: movie) {
+                            TopMovieView(movie: viewModel.topMovie)
                         }
-                    } label: {
-                        TopMovieView(movie: viewModel.topMovie)
                     }
                     
                     top10Section
@@ -31,6 +29,9 @@ struct HomeView: View {
             }
             .toolbar(.hidden, for: .navigationBar)
             .ignoresSafeArea(edges: .top)
+            .navigationDestination(for: Movie.self) { movie in
+                DetailView(movie: movie)
+            }
         }
         .background(.black)
         .environment(\.colorScheme, .dark)
@@ -57,9 +58,7 @@ private extension HomeView {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 20) {
                     ForEach(viewModel.trendingMovies.shuffled()) { movie in
-                        NavigationLink {
-                            DetailView(movie: movie)
-                        } label: {
+                        NavigationLink(value: movie) {
                             PreviewCardView(movie: movie)
                         }
                     }
@@ -77,9 +76,7 @@ private extension HomeView {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 20) {
                     ForEach(viewModel.trendingMovies.shuffled()) { movie in
-                        NavigationLink {
-                            DetailView(movie: movie)
-                        } label: {
+                        NavigationLink(value: movie) {
                             ContinueWatchingCardView(movie: movie)
                         }
                     }
@@ -97,9 +94,7 @@ private extension HomeView {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 20) {
                     ForEach(0..<(viewModel.trendingMovies.count > 10 ? 10 : viewModel.trendingMovies.count), id: \.self) { index in
-                        NavigationLink {
-                            DetailView(movie: viewModel.trendingMovies[index])
-                        } label: {
+                        NavigationLink(value: viewModel.trendingMovies[index]) {
                             Top10CardView(count: index + 1, movie: viewModel.trendingMovies[index])
                         }
                     }

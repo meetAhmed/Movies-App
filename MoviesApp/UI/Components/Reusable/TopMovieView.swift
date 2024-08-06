@@ -50,16 +50,23 @@ struct TopMovieView: View {
             
             VStack {
                 HStack {
-                    MButton(title: .init(text: "Top\n10"), style: .badge)
+                    MButton("Top\n10")
+                        .setStyle(.badge)
                     Text("#2 in Pakistan Today")
                         .poppins(.bold, 13.72)
                         .foregroundStyle(Color.white)
                 }
                 
                 HStack(alignment: .center, spacing: 25) {
-                    MButton(title: .init(text: "My List"), icon: .init(name: "plus", tint: .white))
-                    MButton(title: .init(text: "Play", tint: .black), icon: .init(name: "play.fill", tint: .black), style: .play)
-                    MButton(title: .init(text: "Info"), icon: .init(name: "info.circle", tint: .white))
+                    MButton("My List")
+                        .setIcon("plus")
+                        .setStyle(.topIcon)
+                    MButton("Play")
+                        .setIcon("play.fill")
+                        .setStyle(.play)
+                    MButton("Info")
+                        .setIcon("info.circle")
+                        .setStyle(.topIcon)
                 }
             }
             .frame(maxWidth: .infinity)

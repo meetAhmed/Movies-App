@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     @StateObject private var vm: DetailViewModel
+    @State private var showGallery = false
     
     init(movie: Movie) {
         self._vm = StateObject(wrappedValue: DetailViewModel(movie: movie))
@@ -27,34 +28,28 @@ struct DetailView: View {
                         MovieInfoView(movieDetails: movieDetails)
                         
                         MovieDescriptionView(movieDetails: movieDetails)
-                    } else {
-                        ProgressView()
-                            .foregroundStyle(Color.white)
-                    }
-                    if let movieImages = vm.movieImages {
-                        LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
-                            ForEach(movieImages.backdrops, id: \.filePath) { image in
-                                MImageView(imageUrl: image.urlString)
-                                    .imageType(.backdrop)
-                                    .frame(width: geometry.size.width * 0.28, height: geometry.size.width * 0.28)
-                                    .cornerRadius(10)
-                            }
+                        
+                        MButton("View Gallery") {
+                            showGallery.toggle()
                         }
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                        .padding(.horizontal)
+                    } else {
+                        MLoadingView()
                     }
                 }
                 .padding(.bottom)
             }
         }
-        .ignoresSafeArea(edges: .top)
         .background(Color.black)
         .environment(\.colorScheme, .dark)
         .addCustomBackButton()
+        .navigationDestination(isPresented: $showGallery) {
+            UIViewControllerWrapper(viewController: GalleryVC(movie: vm.movie))
+                .addCustomBackButton()
+        }
         .task {
-            async let movieDetails: Void = vm.fetchMovieDetails()
-            async let movieImages: Void = vm.fetchMovieImages()
-            
-            await movieDetails
-            await movieImages
+            await vm.fetchMovieDetails()
         }
     }
 }
@@ -64,5 +59,3 @@ struct DetailView_Previews: PreviewProvider {
         DetailView(movie: dev.movie)
     }
 }
-
-private extension DetailView {}

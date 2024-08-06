@@ -25,7 +25,7 @@ class DetailViewModel: ObservableObject {
     func fetchMovieDetails() async {
         isLoading = true
         do {
-            movieDetails = try await movieService.fetchData(api: APIConstructor(endpoint: .movieDetails(movie.id)))
+            movieDetails = try await movieService.fetchData(api: APIConstructor(endpoint: .movieDetails(movie.id))).decode()
             isLoading = false
         } catch {
             print(error)
@@ -37,7 +37,7 @@ class DetailViewModel: ObservableObject {
     func fetchMovieImages() async {
         isLoading = true
         do {
-            movieImages = try await movieService.fetchData(api: APIConstructor(endpoint: .movieImages(movie.id)))
+            movieImages = try await movieService.fetchData(api: APIConstructor(endpoint: .movieImages(movie.id))).decode()
             isLoading = false
         } catch {
             print(error)

@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum MButtonStyle {
-    case play, normal, badge
+    case play, topIcon, badge, primary
 }
 
 struct MButtonIcon {
@@ -21,25 +21,30 @@ struct MButtonTitle {
     var tint: Color = .white
 }
 
+typealias MButtonAction = () -> Void
+
 struct MButton: View {
     let title: MButtonTitle
     var icon: MButtonIcon = .init(name: "info.circle")
-    var style: MButtonStyle = .normal
+    var style: MButtonStyle = .primary
+    var action: MButtonAction? = nil
+    
+    init(title: MButtonTitle, action: MButtonAction? = nil) {
+        self.title = title
+        self.action = action
+    }
+    
+    init(_ title: String, action: MButtonAction? = nil) {
+        self.title = .init(text: title)
+        self.action = action
+    }
     
     var body: some View {
         Button {
-            
+            action?()
         } label: {
-            if style == .normal {
-                VStack(spacing: 3) {
-                    Image(systemName: icon.name)
-                        .foregroundStyle(icon.tint)
-                        .frame(width: 24, height: 24)
-                    Text(title.text)
-                        .poppins(.medium, 13.64)
-                        .foregroundStyle(title.tint)
-                }
-            } else if style == .play {
+            switch style {
+            case .play:
                 HStack {
                     Image(systemName: icon.name)
                         .foregroundStyle(icon.tint)
@@ -52,7 +57,16 @@ struct MButton: View {
                 .background(
                     Color.playBtn.cornerRadius(4)
                 )
-            } else {
+            case .topIcon:
+                VStack(spacing: 3) {
+                    Image(systemName: icon.name)
+                        .foregroundStyle(icon.tint)
+                        .frame(width: 24, height: 24)
+                    Text(title.text)
+                        .poppins(.medium, 13.64)
+                        .foregroundStyle(title.tint)
+                }
+            case .badge:
                 VStack(spacing: 0) {
                     Text(title.text)
                         .poppins(.bold, 7)
@@ -60,11 +74,32 @@ struct MButton: View {
                 }
                 .padding(1.8)
                 .border(title.tint, width: 1)
+            case .primary:
+                HStack(spacing: 3) {
+                    Text(title.text)
+                        .poppins(.medium, 13.64)
+                        .foregroundStyle(title.tint)
+                }
+                .frame(height: 45)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .background(Color.primary)
             }
         }
+    }
+    
+    func setIcon(_ name: String, tint: Color = .white) -> MButton {
+        var copy = self
+        copy.icon = .init(name: name, tint: tint)
+        return copy
+    }
+    
+    func setStyle(_ newStyle: MButtonStyle) -> MButton {
+        var copy = self
+        copy.style = newStyle
+        return copy
     }
 }
 
 #Preview {
-    MButton(title: .init(text: "Info"), icon: .init(name: "info.circle", tint: .green))
+    MButton("Action Button")
 }
