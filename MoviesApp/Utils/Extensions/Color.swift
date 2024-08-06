@@ -8,6 +8,10 @@
 import SwiftUI
 
 extension Color {
+    static var primary: Color {
+        Color("Primary")
+    }
+    
     static var appBackground: Color {
         Color("Background")
     }
@@ -22,5 +26,11 @@ extension Color {
     
     static var playBtn: Color {
         Color("PlayBtn")
+    }
+}
+
+extension Color {
+    var uiColor: UIColor {
+        UIColor(self)
     }
 }

@@ -23,7 +23,9 @@ struct Top10CardView: View {
         HStack(alignment: .bottom, spacing: 0) {
             Text("\(count)")
                 .poppins(.black, 100)
-            ImageView(itemWidth: itemWidth, itemHeight: itemHeight, movie: movie)
+                .foregroundStyle(Color.white)
+            MImageView(movie: movie)
+                .frame(width: itemWidth, height: itemHeight)
                 .offset(x: -20)
         }
     }

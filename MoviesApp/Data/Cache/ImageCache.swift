@@ -11,15 +11,21 @@ class ImageCache {
     static let shared = ImageCache()
     
     private var cache = NSCache<NSString, UIImage>()
+    private var service = MoviesNetworkingService()
     
     func getImage(urlString: String) async -> UIImage? {
         if let image = cache.object(forKey: urlString.trim() as NSString) {
             return image
         }
         
-        if let image = await MoviesNetworkingService().downloadImage(urlString: urlString) {
-            cache.setObject(image, forKey: urlString.trim() as NSString)
-            return image
+        do {
+            let imageData = try await service.fetchData(api: .init(endpoint: .custom(urlString)))
+            if let image = UIImage(data: imageData) {
+//                cache.setObject(image, forKey: urlString.trim() as NSString)
+                return image
+            }
+        } catch {
+            MErrorHandler.process(error)
         }
         
         return nil

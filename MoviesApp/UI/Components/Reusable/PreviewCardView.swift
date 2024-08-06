@@ -15,7 +15,9 @@ struct PreviewCardView: View {
     }
     
     var body: some View {
-        ImageView(itemWidth: itemWidth, itemHeight: itemWidth, movie: movie)
+        MImageView(movie: movie)
+            .frame(width: itemWidth, height: itemWidth)
+            .cornerRadius(0)
             .clipShape(Circle())
     }
 }

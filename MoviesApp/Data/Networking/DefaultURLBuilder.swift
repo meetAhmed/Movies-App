@@ -16,7 +16,7 @@ enum DefaultURLBuilder {
     private static var defaultQueryParams = ["api_key": Build.API_KEY]
     
     static func build(for endpoint: Endpoint, params: [String: String] = [:]) throws -> URL {
-        guard var urlComponents = URLComponents(string: endpoint.fullPath) else {
+        guard var urlComponents = URLComponents(string: endpoint.path) else {
             throw URLBuilderError.invalidFullPath
         }
         

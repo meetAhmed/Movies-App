@@ -19,6 +19,10 @@ extension View {
     func vAlign(_ alignment: Alignment) -> some View {
         self.frame(maxHeight: .infinity, alignment: alignment)
     }
+    
+    func addCustomBackButton() -> some View {
+        modifier(MBackButton())
+    }
 }
 
 enum Poppins: String {
