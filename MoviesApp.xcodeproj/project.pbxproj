@@ -60,6 +60,7 @@
 		F1C0C43D2981585A00AD856B /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C0C43C2981585A00AD856B /* Genre.swift */; };
 		F1C0C43F298158AA00AD856B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C0C43E298158AA00AD856B /* HomeViewModel.swift */; };
 		F1C0C44129815F0E00AD856B /* GenreCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C0C44029815F0E00AD856B /* GenreCard.swift */; };
+		F1F7D08B2C73504D00126BEF /* MDeviceProtection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F7D08A2C73504D00126BEF /* MDeviceProtection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +119,7 @@
 		F1C0C43C2981585A00AD856B /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		F1C0C43E298158AA00AD856B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F1C0C44029815F0E00AD856B /* GenreCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCard.swift; sourceTree = "<group>"; };
+		F1F7D08A2C73504D00126BEF /* MDeviceProtection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDeviceProtection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				F14A5BDC2C61FBB300CF3611 /* Shared */,
 				F144E62629826BCB0019304C /* Extensions */,
 				F14A5BD52C61E80400CF3611 /* MErrorHandler.swift */,
+				F1F7D08A2C73504D00126BEF /* MDeviceProtection.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				F1AD183E298147A100B5A0A7 /* DefaultURLBuilder.swift in Sources */,
 				F14A5BE22C62004D00CF3611 /* GalleryCell.swift in Sources */,
 				F13D34822984030700B5866E /* String.swift in Sources */,
+				F1F7D08B2C73504D00126BEF /* MDeviceProtection.swift in Sources */,
 				F1078EC32C523C96001A962C /* MovieDetails.swift in Sources */,
 				F1942B122C439FE600266BAD /* Build.swift in Sources */,
 				F144E67D2982AD530019304C /* View.swift in Sources */,
@@ -622,7 +626,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoviesApp/Supporting Files/Preview Content\"";
-				DEVELOPMENT_TEAM = U3QLWV6K6Y;
+				DEVELOPMENT_TEAM = W5ZQ2W6KM5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MoviesApp/Supporting Files/Info.plist";
@@ -637,7 +641,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedali.MoviesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dummy.aali.moviesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -653,7 +657,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MoviesApp/Supporting Files/Preview Content\"";
-				DEVELOPMENT_TEAM = U3QLWV6K6Y;
+				DEVELOPMENT_TEAM = W5ZQ2W6KM5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MoviesApp/Supporting Files/Info.plist";
@@ -668,7 +672,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ahmedali.MoviesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dummy.aali.moviesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

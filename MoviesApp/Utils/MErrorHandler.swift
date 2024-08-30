@@ -14,3 +14,11 @@ enum MErrorHandler {
         isDebug ? print("MErrorHandler \(String(describing: error))") : ()
     }
 }
+
+enum MLogger {
+    private static let isDebug = true
+    
+    static func output(_ str: String?) {
+        isDebug ? print("MLogger \(String(describing: str))") : ()
+    }
+}

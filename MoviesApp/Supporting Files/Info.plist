@@ -4,6 +4,10 @@
 <dict>
 	<key>Api_key</key>
 	<string>$(API_KEY)</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>cydia</string>
+	</array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Poppins-Black.ttf</string>

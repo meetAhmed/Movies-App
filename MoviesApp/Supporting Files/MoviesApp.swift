@@ -18,6 +18,8 @@ struct MoviesApp: App {
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        
+        MLogger.output("Detecting Jailbreak device: \(MDeviceProtection.shared.isJailbreakDevice())")
     }
     
     var body: some Scene {
