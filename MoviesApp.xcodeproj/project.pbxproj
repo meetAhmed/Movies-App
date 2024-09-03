@@ -42,7 +42,7 @@
 		F1942B0F2C439DA700266BAD /* secrets-debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F1942B0E2C439DA700266BAD /* secrets-debug.xcconfig */; };
 		F1942B122C439FE600266BAD /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1942B112C439FE600266BAD /* Build.swift */; };
 		F1942B172C43B5F700266BAD /* PreviewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1942B162C43B5F700266BAD /* PreviewCardView.swift */; };
-		F19AEB042C43C83000A43246 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AEB032C43C83000A43246 /* ImageCache.swift */; };
+		F19AEB042C43C83000A43246 /* MImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AEB032C43C83000A43246 /* MImageManager.swift */; };
 		F19AEB062C43C8A400A43246 /* MButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AEB052C43C8A400A43246 /* MButton.swift */; };
 		F19AEB082C43D8C000A43246 /* ContinueWatchingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AEB072C43D8C000A43246 /* ContinueWatchingCardView.swift */; };
 		F19AEB0A2C43E09D00A43246 /* Top10CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19AEB092C43E09D00A43246 /* Top10CardView.swift */; };
@@ -99,7 +99,7 @@
 		F1942B0E2C439DA700266BAD /* secrets-debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "secrets-debug.xcconfig"; sourceTree = "<group>"; };
 		F1942B112C439FE600266BAD /* Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
 		F1942B162C43B5F700266BAD /* PreviewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCardView.swift; sourceTree = "<group>"; };
-		F19AEB032C43C83000A43246 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		F19AEB032C43C83000A43246 /* MImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MImageManager.swift; sourceTree = "<group>"; };
 		F19AEB052C43C8A400A43246 /* MButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MButton.swift; sourceTree = "<group>"; };
 		F19AEB072C43D8C000A43246 /* ContinueWatchingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueWatchingCardView.swift; sourceTree = "<group>"; };
 		F19AEB092C43E09D00A43246 /* Top10CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top10CardView.swift; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 		F167CC7C2C48142800ACC3C7 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
-				F19AEB032C43C83000A43246 /* ImageCache.swift */,
+				F19AEB032C43C83000A43246 /* MImageManager.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -469,7 +469,7 @@
 				F14A5BE42C62035200CF3611 /* UIKitImageView.swift in Sources */,
 				F1078EC52C52459C001A962C /* MovieImages.swift in Sources */,
 				F1C0C43D2981585A00AD856B /* Genre.swift in Sources */,
-				F19AEB042C43C83000A43246 /* ImageCache.swift in Sources */,
+				F19AEB042C43C83000A43246 /* MImageManager.swift in Sources */,
 				F14A5BD62C61E80400CF3611 /* MErrorHandler.swift in Sources */,
 				F14A5BDB2C61FA0400CF3611 /* MLoadingView.swift in Sources */,
 				F1AD183829813AC500B5A0A7 /* HomeView.swift in Sources */,

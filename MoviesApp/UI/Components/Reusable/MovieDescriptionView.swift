@@ -12,8 +12,10 @@ struct MovieDescriptionView: View {
     
     var body: some View {
         VStack {
-            Text(movieDetails.tagline)
-                .poppins(.bold, 16)
+            if movieDetails.tagline.trim().isNotEmpty {
+                Text(movieDetails.tagline.trim())
+                    .poppins(.bold, 16)
+            }
             
             Text(movieDetails.overview)
                 .poppins(.medium, 14)

@@ -39,7 +39,7 @@ struct MImageView: View {
         }
         .task {
             guard let urlToUse = movie == nil ? imageUrl : movie?.imageFullPath(type: imageType) else { return }
-            image = await ImageCache.shared.getImage(urlString: urlToUse)
+            image = await MImageManager.shared.getImage(urlString: urlToUse)
         }
     }
 }

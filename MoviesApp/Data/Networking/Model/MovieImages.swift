@@ -12,6 +12,12 @@ struct MovieImagesResponse: Decodable {
     let backdrops, logos, posters: [MovieImage]
 }
 
+extension MovieImagesResponse {
+    var imagesToShow: [MovieImage] {
+        backdrops + logos + posters
+    }
+}
+
 struct MovieImage: Decodable {
     let aspectRatio: Double
     let height: Int
