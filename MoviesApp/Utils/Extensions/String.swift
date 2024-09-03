@@ -11,4 +11,8 @@ extension String {
     func trim() -> String {
         self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
+    
+    var isNotEmpty: Bool {
+        self.trim().isEmpty == false
+    }
 }

@@ -14,10 +14,8 @@ struct HomeView: View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
                 LazyVStack(spacing: 0) {
-                    if let movie = viewModel.topMovie {
-                        NavigationLink(value: movie) {
-                            TopMovieView(movie: viewModel.topMovie)
-                        }
+                    NavigationLink(value: viewModel.topMovie) {
+                        TopMovieView(movie: viewModel.topMovie)
                     }
                     
                     top10Section

@@ -7,13 +7,18 @@
 
 import UIKit
 
-class ImageCache {
-    static let shared = ImageCache()
+class MImageManager {
+    static let shared = MImageManager()
     
-    private var cache = NSCache<NSString, UIImage>()
+    private lazy var cache: NSCache<NSString, UIImage> = {
+        let cache = NSCache<NSString, UIImage>()
+        cache.countLimit = 25
+        return cache
+    }()
+    
     private var service = MoviesNetworkingService()
     
-    func getImage(urlString: String) async -> UIImage? {
+    func getImage(urlString: String, shoudCacheImage: Bool = true) async -> UIImage? {
         if let image = cache.object(forKey: urlString.trim() as NSString) {
             return image
         }
@@ -21,7 +26,9 @@ class ImageCache {
         do {
             let imageData = try await service.fetchData(api: .init(endpoint: .custom(urlString)))
             if let image = UIImage(data: imageData) {
-//                cache.setObject(image, forKey: urlString.trim() as NSString)
+                if shoudCacheImage {
+                    cache.setObject(image, forKey: urlString.trim() as NSString)
+                }
                 return image
             }
         } catch {

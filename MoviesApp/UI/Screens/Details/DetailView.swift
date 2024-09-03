@@ -46,8 +46,10 @@ struct DetailView: View {
         .addCustomBackButton()
         .navigationDestination(isPresented: $showGallery) {
             UIViewControllerWrapper(viewController: GalleryVC(movie: vm.movie))
+                .navigationTitle(vm.movie.title.trim())
                 .addCustomBackButton()
         }
+        .ignoresSafeArea(edges: .top)
         .task {
             await vm.fetchMovieDetails()
         }

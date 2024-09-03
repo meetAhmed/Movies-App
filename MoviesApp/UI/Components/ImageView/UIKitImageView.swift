@@ -24,7 +24,7 @@ class UIKitImageView: UIImageView {
 extension UIKitImageView {
     func update(with movieImage: MovieImage) {
         Task {
-            let image = await ImageCache.shared.getImage(urlString: movieImage.urlString)
+            let image = await MImageManager.shared.getImage(urlString: movieImage.urlString, shoudCacheImage: false)
             self.image = image
         }
     }
@@ -39,7 +39,7 @@ private extension UIKitImageView {
         layer.cornerRadius = 10
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        contentMode = .scaleAspectFit
+        contentMode = .scaleAspectFill
         setPlaceholderImage()
     }
 }

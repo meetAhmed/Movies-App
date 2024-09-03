@@ -63,14 +63,14 @@ extension GalleryVC {
     
     func createThreeColumnsFlowLayout() -> UICollectionViewFlowLayout {
         let width = view.bounds.width
-        let padding: CGFloat = 12
+        let padding: CGFloat = 10
         let itemSpace: CGFloat = 10
         let availableWidth = width - (padding * 2) - (itemSpace * 2)
         let itemWidth = availableWidth / 3
         
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)
+        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth)
         
         return flowLayout
     }
@@ -78,12 +78,12 @@ extension GalleryVC {
 
 extension GalleryVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        vm.movieImages?.posters.count ?? 0
+        vm.movieImages?.imagesToShow.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCell.identifier, for: indexPath) as! GalleryCell
-        cell.update(vm.movieImages?.posters[indexPath.row])
+        cell.update(vm.movieImages?.imagesToShow[indexPath.row])
         return cell
     }
 }
