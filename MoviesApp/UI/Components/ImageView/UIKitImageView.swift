@@ -9,6 +9,7 @@ import UIKit
 
 class UIKitImageView: UIImageView {
     let placeholderImage = UIImage(named: "PlaceholderImage")
+    @Injected var imageManager: MImageManager!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,7 +25,7 @@ class UIKitImageView: UIImageView {
 extension UIKitImageView {
     func update(with movieImage: MovieImage) {
         Task {
-            let image = await MImageManager.shared.getImage(urlString: movieImage.urlString, shoudCacheImage: false)
+            let image = await imageManager.getImage(urlString: movieImage.urlString, shoudCacheImage: false)
             self.image = image
         }
     }

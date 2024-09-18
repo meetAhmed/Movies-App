@@ -29,8 +29,10 @@ class GalleryVC: UIViewController {
         // configure views
         configureCollectionView()
         
-        // load data
-        vm.fetchMovieImages()
+        Task {
+            // load data
+            await vm.fetchMovieImages()
+        }
         
         vm.$isLoaded
             .receive(on: DispatchQueue.main)

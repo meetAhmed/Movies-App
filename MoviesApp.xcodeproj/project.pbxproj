@@ -39,6 +39,8 @@
 		F14A5BE02C61FF4A00CF3611 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A5BDF2C61FF4A00CF3611 /* GalleryViewModel.swift */; };
 		F14A5BE22C62004D00CF3611 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A5BE12C62004D00CF3611 /* GalleryCell.swift */; };
 		F14A5BE42C62035200CF3611 /* UIKitImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A5BE32C62035200CF3611 /* UIKitImageView.swift */; };
+		F14EC5C42C9AFEDC00ADE7ED /* MDependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14EC5C32C9AFEDB00ADE7ED /* MDependencyManager.swift */; };
+		F16FD38E2C9B058C0086EB8C /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = F16FD38D2C9B058C0086EB8C /* Swinject */; };
 		F1942B0F2C439DA700266BAD /* secrets-debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F1942B0E2C439DA700266BAD /* secrets-debug.xcconfig */; };
 		F1942B122C439FE600266BAD /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1942B112C439FE600266BAD /* Build.swift */; };
 		F1942B172C43B5F700266BAD /* PreviewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1942B162C43B5F700266BAD /* PreviewCardView.swift */; };
@@ -96,6 +98,7 @@
 		F14A5BDF2C61FF4A00CF3611 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
 		F14A5BE12C62004D00CF3611 /* GalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
 		F14A5BE32C62035200CF3611 /* UIKitImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitImageView.swift; sourceTree = "<group>"; };
+		F14EC5C32C9AFEDB00ADE7ED /* MDependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDependencyManager.swift; sourceTree = "<group>"; };
 		F1942B0E2C439DA700266BAD /* secrets-debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "secrets-debug.xcconfig"; sourceTree = "<group>"; };
 		F1942B112C439FE600266BAD /* Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
 		F1942B162C43B5F700266BAD /* PreviewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCardView.swift; sourceTree = "<group>"; };
@@ -125,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F16FD38E2C9B058C0086EB8C /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +188,14 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		F14EC5C22C9AFEC100ADE7ED /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				F14EC5C32C9AFEDB00ADE7ED /* MDependencyManager.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 		F167CC7C2C48142800ACC3C7 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,14 +204,21 @@
 			path = Cache;
 			sourceTree = "<group>";
 		};
-		F167CC7D2C48144300ACC3C7 /* Utils */ = {
+		F167CC7D2C48144300ACC3C7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F1EA43702C90497500042F35 /* Utility */,
 				F14A5BDC2C61FBB300CF3611 /* Shared */,
 				F144E62629826BCB0019304C /* Extensions */,
-				F14A5BD52C61E80400CF3611 /* MErrorHandler.swift */,
 			);
-			path = Utils;
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F16FD38F2C9B07630086EB8C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F1942B102C439FD300266BAD /* Configuration */ = {
@@ -252,6 +271,7 @@
 			children = (
 				F1AD182229813A5A00B5A0A7 /* MoviesApp */,
 				F1AD182129813A5A00B5A0A7 /* Products */,
+				F16FD38F2C9B07630086EB8C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -266,9 +286,10 @@
 		F1AD182229813A5A00B5A0A7 /* MoviesApp */ = {
 			isa = PBXGroup;
 			children = (
+				F14EC5C22C9AFEC100ADE7ED /* DI */,
+				F167CC7D2C48144300ACC3C7 /* Core */,
 				F19AEB022C43C80C00A43246 /* Data */,
 				F1942B152C43B47000266BAD /* UI */,
-				F167CC7D2C48144300ACC3C7 /* Utils */,
 				F1AD183129813A7300B5A0A7 /* Supporting Files */,
 			);
 			path = MoviesApp;
@@ -368,6 +389,14 @@
 			path = ImageView;
 			sourceTree = "<group>";
 		};
+		F1EA43702C90497500042F35 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				F14A5BD52C61E80400CF3611 /* MErrorHandler.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -385,6 +414,7 @@
 			);
 			name = MoviesApp;
 			packageProductDependencies = (
+				F16FD38D2C9B058C0086EB8C /* Swinject */,
 			);
 			productName = MoviesApp;
 			productReference = F1AD182029813A5A00B5A0A7 /* MoviesApp.app */;
@@ -415,6 +445,7 @@
 			);
 			mainGroup = F1AD181729813A5A00B5A0A7;
 			packageReferences = (
+				F16FD38C2C9B058C0086EB8C /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = F1AD182129813A5A00B5A0A7 /* Products */;
 			projectDirPath = "";
@@ -459,6 +490,7 @@
 				F19AEB082C43D8C000A43246 /* ContinueWatchingCardView.swift in Sources */,
 				F1AD183E298147A100B5A0A7 /* DefaultURLBuilder.swift in Sources */,
 				F14A5BE22C62004D00CF3611 /* GalleryCell.swift in Sources */,
+				F14EC5C42C9AFEDC00ADE7ED /* MDependencyManager.swift in Sources */,
 				F13D34822984030700B5866E /* String.swift in Sources */,
 				F1078EC32C523C96001A962C /* MovieDetails.swift in Sources */,
 				F1942B122C439FE600266BAD /* Build.swift in Sources */,
@@ -698,6 +730,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F16FD38C2C9B058C0086EB8C /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F16FD38D2C9B058C0086EB8C /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F16FD38C2C9B058C0086EB8C /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F1AD181829813A5A00B5A0A7 /* Project object */;
 }

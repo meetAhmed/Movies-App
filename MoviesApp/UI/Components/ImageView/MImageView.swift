@@ -20,6 +20,7 @@ struct MImageView: View {
     var imageType: MovieImageType = .any
     
     @State private var image: UIImage? = nil
+    @Injected var imageManager: MImageManager!
     
     var body: some View {
         VStack {
@@ -39,7 +40,7 @@ struct MImageView: View {
         }
         .task {
             guard let urlToUse = movie == nil ? imageUrl : movie?.imageFullPath(type: imageType) else { return }
-            image = await MImageManager.shared.getImage(urlString: urlToUse)
+            image = await imageManager.getImage(urlString: urlToUse, shoudCacheImage: true)
         }
     }
 }

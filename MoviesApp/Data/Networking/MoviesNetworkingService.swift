@@ -11,7 +11,11 @@ enum MoviesNetworkingServiceError: Error {
     case invalidStatusCode
 }
 
-actor MoviesNetworkingService {
+protocol MoviesNetworkingService {
+    func fetchData(api: APIConstructor) async throws -> Data
+}
+
+class MoviesNetworkingServiceImpl: MoviesNetworkingService {
     func fetchData(api: APIConstructor) async throws -> Data {
         let url = try DefaultURLBuilder.build(for: api.endpoint, params: api.queryParams)
         let (data, response) = try await URLSession.shared.data(from: url)
