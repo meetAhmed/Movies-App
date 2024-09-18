@@ -14,7 +14,8 @@ class HomeViewModel: ObservableObject {
     @Published var error: Error?
     @Published var isLoadingTrendingMovies = false
     
-    private let movieService = MoviesNetworkingService()
+    @Injected var movieService: MoviesNetworkingService!
+    @Injected var errorHandler: MErrorHandler!
     
     func fetchTrending() async {
         isLoadingTrendingMovies = true
@@ -24,6 +25,7 @@ class HomeViewModel: ObservableObject {
             trendingMovies = response.results
             isLoadingTrendingMovies = false
         } catch {
+            errorHandler.process(error)
             self.error = error
             isLoadingTrendingMovies = false
         }

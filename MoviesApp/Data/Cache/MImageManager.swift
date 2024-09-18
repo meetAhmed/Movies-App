@@ -7,18 +7,21 @@
 
 import UIKit
 
-class MImageManager {
-    static let shared = MImageManager()
-    
+protocol MImageManager {
+    func getImage(urlString: String, shoudCacheImage: Bool) async -> UIImage?
+}
+
+class MImageManagerImpl: MImageManager {
     private lazy var cache: NSCache<NSString, UIImage> = {
         let cache = NSCache<NSString, UIImage>()
         cache.countLimit = 25
         return cache
     }()
     
-    private var service = MoviesNetworkingService()
+    @Injected var service: MoviesNetworkingService!
+    @Injected var errorHandler: MErrorHandler!
     
-    func getImage(urlString: String, shoudCacheImage: Bool = true) async -> UIImage? {
+    func getImage(urlString: String, shoudCacheImage: Bool) async -> UIImage? {
         if let image = cache.object(forKey: urlString.trim() as NSString) {
             return image
         }
@@ -32,7 +35,7 @@ class MImageManager {
                 return image
             }
         } catch {
-            MErrorHandler.process(error)
+            errorHandler.process(error)
         }
         
         return nil

@@ -20,7 +20,8 @@ class DetailViewModel: ObservableObject {
     @Published var error: Error?
     @Published var isLoading = false
     
-    private let movieService = MoviesNetworkingService()
+    @Injected var movieService: MoviesNetworkingService!
+    @Injected var errorHandler: MErrorHandler!
     
     func fetchMovieDetails() async {
         isLoading = true
@@ -28,19 +29,7 @@ class DetailViewModel: ObservableObject {
             movieDetails = try await movieService.fetchData(api: APIConstructor(endpoint: .movieDetails(movie.id))).decode()
             isLoading = false
         } catch {
-            print(error)
-            self.error = error
-            isLoading = false
-        }
-    }
-    
-    func fetchMovieImages() async {
-        isLoading = true
-        do {
-            movieImages = try await movieService.fetchData(api: APIConstructor(endpoint: .movieImages(movie.id))).decode()
-            isLoading = false
-        } catch {
-            print(error)
+            errorHandler.process(error)
             self.error = error
             isLoading = false
         }
