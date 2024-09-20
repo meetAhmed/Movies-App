@@ -41,6 +41,7 @@ struct DetailView: View {
                 .padding(.bottom)
             }
         }
+        .navigationTitle(vm.movie.title)
         .background(Color.black)
         .environment(\.colorScheme, .dark)
         .addCustomBackButton()
@@ -49,7 +50,6 @@ struct DetailView: View {
                 .navigationTitle(vm.movie.title.trim())
                 .addCustomBackButton()
         }
-        .ignoresSafeArea(edges: .top)
         .task {
             await vm.fetchMovieDetails()
         }

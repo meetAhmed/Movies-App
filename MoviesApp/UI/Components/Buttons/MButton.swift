@@ -28,6 +28,8 @@ struct MButton: View {
     var icon: MButtonIcon = .init(name: "info.circle")
     var style: MButtonStyle = .primary
     var action: MButtonAction? = nil
+    var backgroundColor: Color = .primary
+    var disabled = false
     
     init(title: MButtonTitle, action: MButtonAction? = nil) {
         self.title = title
@@ -55,7 +57,7 @@ struct MButton: View {
                 .padding(.horizontal, 20)
                 .padding(.vertical, 8)
                 .background(
-                    Color.playBtn.cornerRadius(4)
+                    backgroundColor.cornerRadius(4)
                 )
             case .topIcon:
                 VStack(spacing: 3) {
@@ -82,9 +84,10 @@ struct MButton: View {
                 }
                 .frame(height: 45)
                 .frame(maxWidth: .infinity, alignment: .center)
-                .background(Color.primary)
+                .background(backgroundColor)
             }
         }
+        .disabled(disabled)
     }
     
     func setIcon(_ name: String, tint: Color = .white) -> MButton {
@@ -96,6 +99,13 @@ struct MButton: View {
     func setStyle(_ newStyle: MButtonStyle) -> MButton {
         var copy = self
         copy.style = newStyle
+        return copy
+    }
+    
+    func disableBtn() -> MButton {
+        var copy = self
+        copy.backgroundColor = .playBtn
+        copy.disabled = true
         return copy
     }
 }
