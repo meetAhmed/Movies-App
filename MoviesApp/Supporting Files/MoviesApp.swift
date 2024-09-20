@@ -6,24 +6,80 @@
 //
 
 import SwiftUI
+import Combine
+import AVFoundation
+import AVKit
 
 @main
 struct MoviesApp: App {
     @StateObject private var vm = HomeViewModel()
-    
-    init() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().compactAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-    }
+    @State private var showOverlay = false
+    @State private var timerCancellable: Cancellable?
+    @State private var time = 1
+    @Injected var screenRecorder: MScreenRecorder!
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
-                .environmentObject(vm)
+            VStack {
+                HomeView()
+                    .environmentObject(vm)
+                Spacer()
+                if showOverlay {
+                    HStack(alignment: .center) {
+                        Text("Recording screen")
+                            .poppins(.medium, 15)
+                        Text("\(time) sec")
+                            .poppins(.light, 14)
+                        Spacer()
+                        HStack {
+                            Text("Stop")
+                                .poppins(.medium, 15)
+                            Image(systemName: "stop.circle.fill")
+                        }
+                        .onTapGesture {
+                            Task {
+                                do {
+                                    try await screenRecorder.stop()
+                                } catch {
+                                    print(error)
+                                    showOverlay = false
+                                }
+                            }
+                        }
+                    }
+                    .foregroundStyle(.white)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.primary)
+                    )
+                    .padding()
+                }
+            }
+            .background(.black)
+            .onReceive(NotificationCenter.default.publisher(for: .startVideoRecord)) { _ in
+                do {
+                    try screenRecorder.record()
+                } catch {
+                    print(error)
+                }
+            }
+            .onReceive(NotificationCenter.default.publisher(for: .screenRecordingStarted)) { _ in
+                showOverlay = true
+                timerCancellable = Timer.publish(every: 1, on: .main, in: .common)
+                    .autoconnect()
+                    .sink { _ in
+                        time += 1
+                    }
+            }
+            .onReceive(NotificationCenter.default.publisher(for: .screenRecordingStopped)) { _ in
+                showOverlay = false
+                timerCancellable?.cancel()
+                timerCancellable = nil
+                time = 0
+                
+                UIApplication.shared.topViewController()?.present(UIHostingController(rootView: ReportBugView()), animated: true)
+            }
         }
     }
 }

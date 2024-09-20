@@ -20,6 +20,7 @@ class MDependencyManager {
         container.register(MoviesNetworkingService.self) { _ in MoviesNetworkingServiceImpl() }
         container.register(MImageManager.self) { _ in MImageManagerImpl() }
         container.register(MErrorHandler.self) { _ in MErrorHandlerImpl() }
+        container.register(MScreenRecorder.self) { _ in MScreenRecorderImpl() }
     }
 }
 
