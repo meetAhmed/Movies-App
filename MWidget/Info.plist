@@ -4,14 +4,10 @@
 <dict>
 	<key>Api_key</key>
 	<string>$(API_KEY)</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Poppins-Black.ttf</string>
-		<string>Poppins-Light.ttf</string>
-		<string>Poppins-Medium.ttf</string>
-		<string>Poppins-Bold.ttf</string>
-	</array>
-	<key>NSSupportsLiveActivities</key>
-	<true/>
+	<key>NSExtension</key>
+	<dict>
+		<key>NSExtensionPointIdentifier</key>
+		<string>com.apple.widgetkit-extension</string>
+	</dict>
 </dict>
 </plist>
