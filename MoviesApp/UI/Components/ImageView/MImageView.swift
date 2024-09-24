@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-enum MovieImageType {
-    case poster, backdrop, any
-}
-
 struct MImageView: View {
     var movie: Movie?
     var imageUrl: String?

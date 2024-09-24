@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TopMovieView: View {
     var movie: Movie? = nil
+    let playAction: () -> Void
     
     var itemWidth: CGFloat {
         UIScreen.main.bounds.width
@@ -61,9 +62,11 @@ struct TopMovieView: View {
                     MButton("My List")
                         .setIcon("plus")
                         .setStyle(.topIcon)
-                    MButton("Play")
-                        .setIcon("play.fill")
-                        .setStyle(.play)
+                    MButton("Play") {
+                        playAction()
+                    }
+                    .setIcon("play.fill")
+                    .setStyle(.play)
                     MButton("Info")
                         .setIcon("info.circle")
                         .setStyle(.topIcon)

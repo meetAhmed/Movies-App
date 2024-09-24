@@ -13,7 +13,7 @@ extension PreviewProvider {
     }
 }
 
-class DeveloperPreview {
+public class DeveloperPreview {
     static let instance = DeveloperPreview()
     private init() {}
     

@@ -48,15 +48,19 @@ struct Movie: Decodable, Identifiable, Hashable {
     }
 }
 
+enum MovieImageType {
+    case poster, backdrop, any
+}
+
 extension Movie {
-    func imageFullPath(type: MovieImageType) -> String {
+    func imageFullPath(type: MovieImageType, baseUrl: String = Endpoint.imageBaseUrl) -> String {
         switch type {
         case .poster:
-            return Endpoint.imageBaseUrl + (posterPath == nil ? backdropPath.stringValue : posterPath.stringValue)
+            return baseUrl + (posterPath == nil ? backdropPath.stringValue : posterPath.stringValue)
         case .backdrop:
-            return Endpoint.imageBaseUrl + (backdropPath == nil ? posterPath.stringValue : backdropPath.stringValue)
+            return baseUrl + (backdropPath == nil ? posterPath.stringValue : backdropPath.stringValue)
         case .any:
-            return Endpoint.imageBaseUrl + (posterPath == nil ? backdropPath.stringValue : posterPath.stringValue)
+            return baseUrl + (posterPath == nil ? backdropPath.stringValue : posterPath.stringValue)
         }
     }
 }

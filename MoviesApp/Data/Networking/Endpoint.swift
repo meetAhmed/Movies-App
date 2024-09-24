@@ -23,6 +23,10 @@ extension Endpoint {
     static var imageBaseUrl: String {
         "https://image.tmdb.org/t/p/original"
     }
+    
+    static var widgetImageBaseUrl: String {
+        "https://image.tmdb.org/t/p/w300"
+    }
 }
 
 extension Endpoint {

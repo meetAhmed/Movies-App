@@ -15,7 +15,9 @@ struct HomeView: View {
             ScrollView(showsIndicators: false) {
                 LazyVStack(spacing: 0) {
                     NavigationLink(value: viewModel.topMovie) {
-                        TopMovieView(movie: viewModel.topMovie)
+                        TopMovieView(movie: viewModel.topMovie) {
+                            MLiveActivityHandler(attributes: MLiveActivityAttributes(movieTitle: viewModel.topMovie?.title ?? "Movie")).simulate()
+                        }
                     }
                     
                     top10Section
