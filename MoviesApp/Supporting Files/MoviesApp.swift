@@ -18,6 +18,10 @@ struct MoviesApp: App {
     @State private var time = 1
     @Injected var screenRecorder: MScreenRecorder!
     
+    init() {
+        configureURLCache()
+    }
+    
     var body: some Scene {
         WindowGroup {
             VStack {
@@ -81,5 +85,13 @@ struct MoviesApp: App {
                 UIApplication.shared.topViewController()?.present(UIHostingController(rootView: ReportBugView()), animated: true)
             }
         }
+    }
+}
+
+private extension MoviesApp {
+    func configureURLCache() {
+        let memoryCapacity = 40 * 1024 * 1024
+        let diskCapacity = 80 * 1024 * 1024
+        URLCache.shared = URLCache(memoryCapacity: memoryCapacity, diskCapacity: diskCapacity)
     }
 }
