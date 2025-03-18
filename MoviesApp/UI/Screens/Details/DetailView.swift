@@ -42,12 +42,14 @@ struct DetailView: View {
             }
         }
         .navigationTitle(vm.movie.title)
+        .navigationBarTitleDisplayMode(.inline)
         .background(Color.black)
         .environment(\.colorScheme, .dark)
         .addCustomBackButton()
         .navigationDestination(isPresented: $showGallery) {
             UIViewControllerWrapper(viewController: GalleryVC(movie: vm.movie))
                 .navigationTitle(vm.movie.title.trim())
+                .navigationBarTitleDisplayMode(.inline)
                 .addCustomBackButton()
         }
         .task {

@@ -72,6 +72,8 @@
 		F14A5BE22C62004D00CF3611 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A5BE12C62004D00CF3611 /* GalleryCell.swift */; };
 		F14A5BE42C62035200CF3611 /* UIKitImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A5BE32C62035200CF3611 /* UIKitImageView.swift */; };
 		F14EC5C42C9AFEDC00ADE7ED /* MDependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14EC5C32C9AFEDB00ADE7ED /* MDependencyManager.swift */; };
+		F16951412D89573700FFC1C6 /* MURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16951402D89572A00FFC1C6 /* MURLProtocol.swift */; };
+		F16951422D89573700FFC1C6 /* MURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16951402D89572A00FFC1C6 /* MURLProtocol.swift */; };
 		F16FD38E2C9B058C0086EB8C /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = F16FD38D2C9B058C0086EB8C /* Swinject */; };
 		F1942B0F2C439DA700266BAD /* secrets-debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F1942B0E2C439DA700266BAD /* secrets-debug.xcconfig */; };
 		F1942B122C439FE600266BAD /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1942B112C439FE600266BAD /* Build.swift */; };
@@ -176,6 +178,7 @@
 		F14A5BE12C62004D00CF3611 /* GalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
 		F14A5BE32C62035200CF3611 /* UIKitImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitImageView.swift; sourceTree = "<group>"; };
 		F14EC5C32C9AFEDB00ADE7ED /* MDependencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDependencyManager.swift; sourceTree = "<group>"; };
+		F16951402D89572A00FFC1C6 /* MURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MURLProtocol.swift; sourceTree = "<group>"; };
 		F1942B0E2C439DA700266BAD /* secrets-debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "secrets-debug.xcconfig"; sourceTree = "<group>"; };
 		F1942B112C439FE600266BAD /* Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
 		F1942B162C43B5F700266BAD /* PreviewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCardView.swift; sourceTree = "<group>"; };
@@ -464,6 +467,7 @@
 			isa = PBXGroup;
 			children = (
 				F1AD183529813A9F00B5A0A7 /* Model */,
+				F16951402D89572A00FFC1C6 /* MURLProtocol.swift */,
 				F1AD18392981444F00B5A0A7 /* MoviesNetworkingService.swift */,
 				F1AD183D298147A100B5A0A7 /* DefaultURLBuilder.swift */,
 				F1AD183F29814F4B00B5A0A7 /* APIConstructor.swift */,
@@ -676,6 +680,7 @@
 				F136F2A92CA1609C00BFF4AD /* MWidget.swift in Sources */,
 				F136F2CF2CA168C200BFF4AD /* Optional.swift in Sources */,
 				F136F2BE2CA1655300BFF4AD /* Data.swift in Sources */,
+				F16951412D89573700FFC1C6 /* MURLProtocol.swift in Sources */,
 				F136F2C52CA1677F00BFF4AD /* Genre.swift in Sources */,
 				F136F2CE2CA1688300BFF4AD /* Build.swift in Sources */,
 				F136F2C62CA1678200BFF4AD /* Review.swift in Sources */,
@@ -740,6 +745,7 @@
 				F19AEB0C2C43E55D00A43246 /* MTitleView.swift in Sources */,
 				F1AD184029814F4B00B5A0A7 /* APIConstructor.swift in Sources */,
 				F13D347E2983F7A700B5866E /* Review.swift in Sources */,
+				F16951422D89573700FFC1C6 /* MURLProtocol.swift in Sources */,
 				F1AD183C2981462100B5A0A7 /* Endpoint.swift in Sources */,
 				F19AEB0E2C43E6F800A43246 /* TopMovieView.swift in Sources */,
 				F14A5BDE2C61FC8300CF3611 /* UIViewControllerWrapper.swift in Sources */,
