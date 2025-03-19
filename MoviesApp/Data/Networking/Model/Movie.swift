@@ -53,7 +53,7 @@ enum MovieImageType {
 }
 
 extension Movie {
-    func imageFullPath(type: MovieImageType, baseUrl: String = Endpoint.imageBaseUrl) -> String {
+    func imageFullPath(type: MovieImageType, baseUrl: String = MConstants.imageBaseUrl) -> String {
         switch type {
         case .poster:
             return baseUrl + (posterPath == nil ? backdropPath.stringValue : posterPath.stringValue)

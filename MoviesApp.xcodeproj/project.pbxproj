@@ -97,6 +97,8 @@
 		F1C0C43D2981585A00AD856B /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C0C43C2981585A00AD856B /* Genre.swift */; };
 		F1C0C43F298158AA00AD856B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C0C43E298158AA00AD856B /* HomeViewModel.swift */; };
 		F1C0C44129815F0E00AD856B /* GenreCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C0C44029815F0E00AD856B /* GenreCard.swift */; };
+		F1DE754C2D8AA66600259B63 /* MConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE754B2D8AA66100259B63 /* MConstants.swift */; };
+		F1DE754D2D8AA66600259B63 /* MConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE754B2D8AA66100259B63 /* MConstants.swift */; };
 		F1FD99912CA28E5000ACF9F2 /* MLiveActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD99902CA28E5000ACF9F2 /* MLiveActivityHandler.swift */; };
 		F1FD99922CA28EFB00ACF9F2 /* MWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F136F2A62CA1609C00BFF4AD /* MWidgetLiveActivity.swift */; };
 		F1FD99942CA28FA900ACF9F2 /* MLiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FD99932CA28FA900ACF9F2 /* MLiveActivityAttributes.swift */; };
@@ -202,6 +204,7 @@
 		F1C0C43C2981585A00AD856B /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		F1C0C43E298158AA00AD856B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F1C0C44029815F0E00AD856B /* GenreCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCard.swift; sourceTree = "<group>"; };
+		F1DE754B2D8AA66100259B63 /* MConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConstants.swift; sourceTree = "<group>"; };
 		F1FD99902CA28E5000ACF9F2 /* MLiveActivityHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLiveActivityHandler.swift; sourceTree = "<group>"; };
 		F1FD99932CA28FA900ACF9F2 /* MLiveActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLiveActivityAttributes.swift; sourceTree = "<group>"; };
 		F1FD99992CA2ADB400ACF9F2 /* MLiveActivityViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLiveActivityViews.swift; sourceTree = "<group>"; };
@@ -523,6 +526,7 @@
 		F1EA43702C90497500042F35 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				F1DE754B2D8AA66100259B63 /* MConstants.swift */,
 				F14A5BD52C61E80400CF3611 /* MErrorHandler.swift */,
 				F10F89552C9C85F10096B2DA /* MScreenRecorder.swift */,
 				F1FD99902CA28E5000ACF9F2 /* MLiveActivityHandler.swift */,
@@ -680,6 +684,7 @@
 				F136F2A92CA1609C00BFF4AD /* MWidget.swift in Sources */,
 				F136F2CF2CA168C200BFF4AD /* Optional.swift in Sources */,
 				F136F2BE2CA1655300BFF4AD /* Data.swift in Sources */,
+				F1DE754D2D8AA66600259B63 /* MConstants.swift in Sources */,
 				F16951412D89573700FFC1C6 /* MURLProtocol.swift in Sources */,
 				F136F2C52CA1677F00BFF4AD /* Genre.swift in Sources */,
 				F136F2CE2CA1688300BFF4AD /* Build.swift in Sources */,
@@ -718,6 +723,7 @@
 				F144E67D2982AD530019304C /* View.swift in Sources */,
 				F1B4C4E52C48F570009D29ED /* MBackButton.swift in Sources */,
 				F144E62A29826E770019304C /* Optional.swift in Sources */,
+				F1DE754C2D8AA66600259B63 /* MConstants.swift in Sources */,
 				F144E67B2982AB650019304C /* SearchBar.swift in Sources */,
 				F1BD7CF22C9D4F5000A19842 /* VideoPlayerView.swift in Sources */,
 				F10F89562C9C85F10096B2DA /* MScreenRecorder.swift in Sources */,

@@ -22,7 +22,7 @@ class GalleryViewModel: ObservableObject {
     
     func fetchMovieImages() async {
         do {
-            movieImages = try await movieService.fetchData(api: APIConstructor(endpoint: .movieImages(movie.id))).decode()
+            movieImages = try await movieService.fetchData(api: APIConstructorImpl(endpoint: MovieImagesEndpoint(id: movie.id))).decode()
             isLoaded = true
         } catch {
             errorHandler.process(error)
