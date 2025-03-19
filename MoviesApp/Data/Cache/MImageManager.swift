@@ -27,7 +27,7 @@ class MImageManagerImpl: MImageManager {
         }
         
         do {
-            let imageData = try await service.fetchData(api: .init(endpoint: .custom(urlString)))
+            let imageData = try await service.fetchData(api: APIConstructorImpl(endpoint: CustomEndpoint(customUrl: urlString)))
             if let image = UIImage(data: imageData) {
                 if shoudCacheImage {
                     cache.setObject(image, forKey: urlString.trim() as NSString)

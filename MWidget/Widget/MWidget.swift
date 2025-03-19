@@ -9,7 +9,7 @@ import WidgetKit
 import SwiftUI
 
 struct Provider: TimelineProvider {
-    let movieService = MoviesNetworkingServiceImpl()
+    let movieService = MoviesNetworkingServiceImpl(urlSession: URLSession.shared, urlCache: URLCache.shared)
     
     func placeholder(in context: Context) -> MEntry {
         MEntry(date: Date(), title: DeveloperPreview.instance.movie.title, image: UIImage(systemName: "photo.fill"))
@@ -22,11 +22,11 @@ struct Provider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         Task {
             do {
-                let response: MovieApiResponse = try await movieService.fetchData(api: APIConstructor(endpoint: .trending)).decode()
+                let response: MovieApiResponse = try await movieService.fetchData(api: APIConstructorImpl(endpoint: TrendingMoviesEndpoint())).decode()
                 guard let randomMovie = response.results.randomElement() else { return }
                
                 // download image
-                let imageData = try await movieService.fetchData(api: .init(endpoint: .custom(randomMovie.imageFullPath(type: .poster, baseUrl: Endpoint.widgetImageBaseUrl))))
+                let imageData = try await movieService.fetchData(api: APIConstructorImpl(endpoint: CustomEndpoint(customUrl: randomMovie.imageFullPath(type: .poster, baseUrl: MConstants.widgetImageBaseUrl))))
                 guard let image = UIImage(data: imageData) else { return }
                 
                 // create entry

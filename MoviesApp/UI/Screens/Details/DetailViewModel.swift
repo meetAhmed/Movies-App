@@ -26,7 +26,7 @@ class DetailViewModel: ObservableObject {
     func fetchMovieDetails() async {
         isLoading = true
         do {
-            movieDetails = try await movieService.fetchData(api: APIConstructor(endpoint: .movieDetails(movie.id))).decode()
+            movieDetails = try await movieService.fetchData(api: APIConstructorImpl(endpoint: MovieDetailsEndpoint(id: movie.id))).decode()
             isLoading = false
         } catch {
             errorHandler.process(error)

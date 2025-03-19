@@ -7,53 +7,44 @@
 
 import Foundation
 
-enum Endpoint {
-    case trending
-    case discoverMovies
-    case genres
-    case search
-    case topRated
-    case reviews(_ movieId: Int)
-    case movieDetails(_ movieId: Int)
-    case movieImages(_ movieId: Int)
-    case custom(_ url: String)
+protocol Endpoint {
+    var url: String { get }
 }
 
-extension Endpoint {
-    static var imageBaseUrl: String {
-        "https://image.tmdb.org/t/p/original"
-    }
-    
-    static var widgetImageBaseUrl: String {
-        "https://image.tmdb.org/t/p/w300"
-    }
+struct TrendingMoviesEndpoint: Endpoint {
+    var url: String { MConstants.base + "/3/trending/movie/week" }
 }
 
-extension Endpoint {
-    var base: String {
-        "https://api.themoviedb.org"
+struct DiscoverMoviesEndpoint: Endpoint {
+    var url: String { MConstants.base + "/3/discover/movie" }
+}
+
+struct MovieDetailsEndpoint: Endpoint {
+    private var id: Int
+    
+    init(id: Int) {
+        self.id = id
     }
     
-    var path: String {
-        switch self {
-        case .trending:
-            return base + "/3/trending/movie/week"
-        case .discoverMovies:
-            return base + "/3/discover/movie"
-        case .genres:
-            return base + "/3/genre/movie/list"
-        case .search:
-            return base + "/3/search/movie"
-        case .topRated:
-            return base + "/3/movie/top_rated"
-        case .reviews(let movieId):
-            return base + "/3/movie/\(movieId)/reviews"
-        case .movieDetails(let movieId):
-            return base + "/3/movie/\(movieId)"
-        case .movieImages(let movieId):
-            return base + "/3/movie/\(movieId)/images"
-        case .custom(let url):
-            return url
-        }
+    var url: String { MConstants.base + "/3/movie/\(id)" }
+}
+
+struct MovieImagesEndpoint: Endpoint {
+    private var id: Int
+    
+    init(id: Int) {
+        self.id = id
     }
+    
+    var url: String { MConstants.base + "/3/movie/\(id)/images" }
+}
+
+struct CustomEndpoint: Endpoint {
+    private var customUrl: String
+    
+    init(customUrl: String) {
+        self.customUrl = customUrl
+    }
+    
+    var url: String { customUrl }
 }

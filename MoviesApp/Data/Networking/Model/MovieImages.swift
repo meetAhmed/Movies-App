@@ -37,6 +37,6 @@ struct MovieImage: Decodable {
     }
     
     var urlString: String {
-        Endpoint.imageBaseUrl + filePath
+        MConstants.imageBaseUrl + filePath
     }
 }

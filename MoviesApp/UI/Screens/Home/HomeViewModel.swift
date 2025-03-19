@@ -20,7 +20,7 @@ class HomeViewModel: ObservableObject {
     func fetchTrending() async {
         isLoadingTrendingMovies = true
         do {
-            let response: MovieApiResponse = try await movieService.fetchData(api: APIConstructor(endpoint: .trending)).decode()
+            let response: MovieApiResponse = try await movieService.fetchData(api: APIConstructorImpl(endpoint: TrendingMoviesEndpoint())).decode()
             topMovie = response.results.randomElement()
             trendingMovies = response.results
             isLoadingTrendingMovies = false
