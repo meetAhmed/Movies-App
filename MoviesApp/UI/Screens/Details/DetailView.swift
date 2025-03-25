@@ -19,10 +19,15 @@ struct DetailView: View {
         GeometryReader { geometry in
             ScrollView {
                 LazyVStack {
-                    MImageView(movie: vm.movie)
-                        .imageType(.backdrop)
-                        .frame(width: geometry.size.width, height: geometry.size.height * 0.35)
-                        .cornerRadius(0)
+                    if let videoID = vm.movieVideo?.key.trim() {
+                        YouTubePlayerView(videoID: videoID)
+                            .frame(width: geometry.size.width, height: geometry.size.height * 0.35)
+                    } else {
+                        MImageView(movie: vm.movie)
+                            .imageType(.backdrop)
+                            .frame(width: geometry.size.width, height: geometry.size.height * 0.35)
+                            .cornerRadius(0)
+                    }
                     
                     if let movieDetails = vm.movieDetails {
                         MovieInfoView(movieDetails: movieDetails)
@@ -53,7 +58,7 @@ struct DetailView: View {
                 .addCustomBackButton()
         }
         .task {
-            await vm.fetchMovieDetails()
+            await vm.fetchData()
         }
     }
 }

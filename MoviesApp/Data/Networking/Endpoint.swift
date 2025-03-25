@@ -39,6 +39,16 @@ struct MovieImagesEndpoint: Endpoint {
     var url: String { MConstants.base + "/3/movie/\(id)/images" }
 }
 
+struct MovieVideosEndpoint: Endpoint {
+    private var id: Int
+    
+    init(id: Int) {
+        self.id = id
+    }
+    
+    var url: String { MConstants.base + "/3/movie/\(id)/videos" }
+}
+
 struct CustomEndpoint: Endpoint {
     private var customUrl: String
     
