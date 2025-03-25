@@ -27,19 +27,8 @@ struct HomeView: View {
                     continueWatchingSection
                 }
             }
-            .navigationTitle("MoviesApp")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink {
-                        SettingsView()
-                    } label: {
-                        Image(systemName: "gearshape")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                    }
-                }
-            }
+            .toolbar(.hidden, for: .navigationBar)
+            .ignoresSafeArea(edges: .top)
             .navigationDestination(for: Movie.self) { movie in
                 DetailView(movie: movie)
             }

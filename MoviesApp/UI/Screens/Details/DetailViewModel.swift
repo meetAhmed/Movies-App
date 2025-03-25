@@ -15,6 +15,7 @@ class DetailViewModel: ObservableObject {
         self.movie = movie
     }
     
+    @Published var movieVideo: MovieVideo? = nil
     @Published var movieDetails: MovieDetails? = nil
     @Published var movieImages: MovieImagesResponse? = nil
     @Published var error: Error?
@@ -23,10 +24,24 @@ class DetailViewModel: ObservableObject {
     @Injected var movieService: MoviesNetworkingService!
     @Injected var errorHandler: MErrorHandler!
     
-    func fetchMovieDetails() async {
+    func fetchMovieDetails() async throws -> MovieDetails {
+        try await movieService.fetchData(api: APIConstructorImpl(endpoint: MovieDetailsEndpoint(id: movie.id))).decode()
+    }
+    
+    func fetchMovieVideos() async throws -> MovieVideosResponse {
+        try await movieService.fetchData(api: APIConstructorImpl(endpoint: MovieVideosEndpoint(id: movie.id))).decode()
+    }
+    
+    func fetchData() async {
         isLoading = true
+        
+        async let details = fetchMovieDetails()
+        async let videos = fetchMovieVideos()
+        
         do {
-            movieDetails = try await movieService.fetchData(api: APIConstructorImpl(endpoint: MovieDetailsEndpoint(id: movie.id))).decode()
+            let (details, videos) = await (try details, try videos)
+            movieDetails = details
+            movieVideo = videos.results.first { $0.site == "YouTube" }
             isLoading = false
         } catch {
             errorHandler.process(error)

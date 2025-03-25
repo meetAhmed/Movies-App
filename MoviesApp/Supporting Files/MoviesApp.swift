@@ -25,9 +25,6 @@ struct MoviesApp: App {
     var body: some Scene {
         WindowGroup {
             VStack {
-                HomeView()
-                    .environmentObject(vm)
-                Spacer()
                 if showOverlay {
                     HStack(alignment: .center) {
                         Text("Recording screen")
@@ -58,9 +55,12 @@ struct MoviesApp: App {
                             .fill(Color.primary)
                     )
                     .padding()
+                    
+                    Spacer()
                 }
+                MTabsView()
+                    .environmentObject(vm)
             }
-            .background(.black)
             .onReceive(NotificationCenter.default.publisher(for: .startVideoRecord)) { _ in
                 do {
                     try screenRecorder.record()
