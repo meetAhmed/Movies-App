@@ -5,10 +5,12 @@
 //  Created by Ahmed Ali on 25/01/2023.
 //
 
-import SwiftUI
-import Combine
 import AVFoundation
 import AVKit
+import Combine
+import SwiftUI
+
+
 
 @main
 struct MoviesApp: App {
@@ -19,6 +21,7 @@ struct MoviesApp: App {
     @Injected var screenRecorder: MScreenRecorder!
     
     init() {
+        MAnalytics().initizalize()
         configureURLCache()
     }
     
